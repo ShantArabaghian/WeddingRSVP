@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Hrag & Anahit's Wedding" />
+    <meta property="og:description" content="Welcome To Our Wedding" />
+    <meta property="og:image" content="https://hragandanahit.com/images/testimage.jpeg" />
+    <meta property="og:url" content="https://hragandanahit.com/" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link id="english-css" rel="stylesheet" type="text/css" href="styles/english.css" disabled>
+    <link id="armenian-css" rel="preload" as="style" type="text/css" href="styles/armenian.css" disabled>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <link id="language-style" rel="stylesheet" type="text/css" href="styles/english.css">
+    <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" type="image/png">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+    <Title>Anahit & Hrag's Wedding</Title>
+    <style>
+        body {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <ul id="nav-links">
+            <li><a href="#our-story" data-eng="Our Story" data-arm="Մեր Պատմությունը" class="translatable">Our Story</a>
+            </li>
+            <li id="logo"><a href="#"><img src="images/logos/white-logo.png" alt="Event Logo"></a></li>
+            <li style="display: flex;" class="trans">
+                <a href="#rsvp" data-eng="RSVP" data-arm="Ամրագրում" class="translatable" id="nav-2-link">RSVP</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <img src="images/Langs/am.png" alt="UK Flag" id="selected-flag" data-value="eng">
+                    </button>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="#" data-value="eng">
+                            <img src="images/Langs/eng.png" alt="UK Flag"></a>
+                        <a href="#" data-value="arm">
+                            <img src="images/Langs/am.png" alt="Armenian Flag"></a>
+                    </div>
+                </div>
+                <!-- <select name="translate" id="translate" class="translate" >
+                    <option value="eng" selected>Eng</option>
+                    <option value="arm">Հայ</option>
+                </select> -->
+            </li>
+        </ul>
+
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Hero Section -->
+    <div class="animation-element bounce-up">
+        <div class="paral paralsec jumbotron bounce-up" id="about">
+            <div class="overlay"></div>
+            <div class="desc">
+                <h1 data-eng="Anahit & Hrag" data-arm="Անահիտ & Հրակ" class="translatable">Hrag & Anahit</h1>
+                <h2 data-eng="Save The Date" data-arm="Դուք Հրավիրված եք Մեր Հարսանիքին" class="translatable">Save The
+                    Date</h2>
+                <hr>
+                <h3 data-eng="18th August 2024" data-arm="Օգոստոսի 18-ին 2024թ." class="translatable">18th August 2024
+                </h3>
+                <hr>
+                <a id="button-music" data-eng="Let's Start" data-arm="Սկսեցի՞նք" class="translatable">Let's Start</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Countdown Section  -->
+    <div class="countdown-container">
+        <div class="divider">
+            <span id="divider-text" data-eng="Just" data-arm="Ընդամենը" class="translatable">Just</span>
+        </div>
+        <div class="countdown">
+            <div class="time-part">
+                <span id="days">00</span>
+                <label data-eng="Days" data-arm="օր" class="translatable">Days</label>
+            </div>
+            <div class="time-part">
+                <span id="hours">00</span>
+                <label data-eng="Hours" data-arm="ժամ" class="translatable">Hours</label>
+            </div>
+            <div class="time-part">
+                <span id="minutes">00</span>
+                <label data-eng="Minutes" data-arm="րոպե" class="translatable">Minutes</label>
+            </div>
+            <div class="time-part">
+                <span id="seconds">00</span>
+                <label data-eng="Seconds" data-arm="վայրկյան" class="translatable">Seconds</label>
+            </div>
+        </div>
+        <h1 data-eng="Until we get married!" data-arm="Այսքան Մնաց Մինչև Մեր Հարսանիքը։" class="translatable">Until we
+            get married!</h1>
+
+    </div>
+    <audio id="myAudio">
+        <source src="/audio/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Our Story -->
+    <div class="two-column-container" id="our-story">
+        <div class="left-column">
+            <h1 data-eng="Our Story" data-arm="Մեր պատմությունը" class="translatable">Our Story</h1>
+            <hr>
+            <div id="story-content">
+                <p class="translatable" id="story-paragraph" data-arm="Մենք առաջին անգամ հանդիպել ենք  2021 թվականի օգոստոսի 18-ին, իսկ 2024 թվականի օգոստոսի 18-ին մենք ամուսնանում ենք: Ճակատագրի բերումով, դա սեր էր առաջին հայացքից:
+                
+                Մեր համատեղ ճանապարհը սկսվեց պարզ «բարևով», որը վերածվեց անհամար ընդհանուր երազանքների, ծիծաղի, որն արձագանքում է մեր օրերում և անսահման աջակցության, որը տանում է մեզ կյանքի մարտահրավերների միջով:
+
+                Մեր հարաբերությունները վկայում են սիրո, համբերության և փոխըմբռնման ուժի մասին: Մենք իրար տեսնում ենք ոչ միայն որպես զույգ, այլ նաև լավագույն ընկերներ, ովքեր լրացնում են միմյանց նախադասությունները և հասկանում չասված բառերը: Միասին մենք կառուցել ենք վստահություն, հարգանք և անմնացորդ նվիրվածություն միմյանց հանդեպ:
+                
+                Ես՝ փեսան, ինժեներ եմ, ծնվել և մեծացել եմ Բեյրութի սրտում, Լիբանանում, արևմտահայ արմատներով, որոնք ձևավորել են ընտանիքի, սիրո և կյանքի իմ տեսակետը: Մինչդեռ իմ սիրելի Անահիտը՝ իմ հարսնացուն, գալիս է Հայաստանի դյութիչ Երևան քաղաքից՝ իր հետ բերելով արևելահայ ժառանգության ջերմությունը:
+                                
+                Երևանի աշխույժ փողոցներում մենք գտանք մի կապ, որը հակասում է տարբերություններին: Միասին մենք բացահայտեցինք մեր տարբեր ծագումը ընդունելու, միմյանցից սովորելու և մեր մշակույթների հարստությունը տոնելու գեղեցկությունը:
+                
+                Մեր հարաբերությունները լիբանանյան և հայկական ավանդույթների թելերով հյուսված գոբելեն է՝ ստեղծելով ներդաշնակ խառնուրդ, որն արտացոլում է մեր կիսած սերը:
+                
+                Որպես ինժեներ՝ ես կյանքը տեսնում եմ որպես լուծելու հանելուկ, և Անահիտն իր կոմերցիոն վարպետությամբ բերում է մեր հարաբերությունների մեջ բանակցելու և փոխըմբռնման արվեստը: Մենք  միմյանց լրացնում ենք հետաքրքրաշարժությամբ, ոգեշնչելով, սովորելով միմյանց ուժեղ կողմերից և աջակցելով միմյանց երազանքներին:
+                
+                Երբ մենք սկսում ենք ամուսնության այս գեղեցիկ ճանապարհորդությունը, մենք ցանկանում ենք մեր սրտանց երախտագիտությունը հայտնել մեր բոլոր ընկերներին և ընտանիքին, ովքեր աջակցել և փայփայել են մեր սիրո պատմությունը: Ձեր ներկայությունը մեր հատուկ օրվան ավելի հիշարժան կդարձնի այն, և մենք անհամբեր սպասում ենք ձեզ հետ միասին նշելու այս ուրախ առիթը:
+                
+                Սիրով և հարգանքով,
+                Անահիտ և Հրակ
+                " data-eng="We first met on August 18, 2021, and on August 18, 2024, we are getting married!
+                As fate would have it, it was love at first sight! Our journey together began with a simple 'hello' that blossomed into countless shared dreams, laughter that echoes through our days, and endless support that carries us through life's challenges.
+                
+                Our relationship is a testament to the power of love, patience, and understanding. In each other, we found not just partners, but best friends who complete each other's sentences and understand the unspoken words. Together, we have built a foundation of trust, respect, and unwavering devotion.
+                
+                I, the groom, am an engineer born and raised in the heart of Beirut, Lebanon, with Western Armenian roots that have shaped my perspective on family, love, and life. Meanwhile, my lovely Anahit, my bride, hails from the enchanting city of Yerevan, Armenia, bringing with her the warmth of Eastern Armenian heritage.
+                
+                In the dynamic streets of Yerevan, we found a connection that defies differences. Together, we've discovered the beauty in embracing our distinct backgrounds, learning from one another, and celebrating the richness of our cultures. Our relationship is a tapestry woven with the threads of Lebanese and Armenian traditions, creating a harmonious blend that reflects the love we share.
+                
+                As an engineer, I see life as a puzzle to be solved, and Anahit, with her commercial prowess, brings the art of negotiation and understanding into our relationship. We complement each other in ways that are both fascinating and inspiring, learning from each other's strengths and supporting one another's dreams.
+                
+                As we embark on this beautiful journey of marriage, we want to express our heartfelt gratitude to all our friends and family who have supported and cherished our love story. Your presence on our special day will make it even more memorable, and we look forward to celebrating this joyous occasion with you.
+                
+                With love and excitement,
+                Anahit & Hrag
+                ">
+                    We first met on August 18, 2021, and on August 18, 2024, we are getting married!
+                    As fate would have it, it was love at first sight! Our journey together began with a simple 'hello'
+                    that blossomed into countless shared dreams, laughter that echoes through our days, and endless
+                    support that carries us through life's challenges.
+                    <br><br>
+                    Our relationship is a testament to the power of love, patience, and understanding. In each other, we
+                    found not just partners, but best friends who complete each other's sentences and understand the
+                    unspoken words. Together, we have built a foundation of trust, respect, and unwavering devotion.
+                    <br><br>
+
+                    I, the groom, am an engineer born and raised in the heart of Beirut, Lebanon, with Western Armenian
+                    roots that have shaped my perspective on family, love, and life. Meanwhile, my lovely Anahit, my
+                    bride, hails from the enchanting city of Yerevan, Armenia, bringing with her the warmth of Eastern
+                    Armenian heritage.
+                    <br><br>
+
+                    In the dynamic streets of Yerevan, we found a connection that defies differences. Together, we've
+                    discovered the beauty in embracing our distinct backgrounds, learning from one another, and
+                    celebrating the richness of our cultures. Our relationship is a tapestry woven with the threads of
+                    Lebanese and Armenian traditions, creating a harmonious blend that reflects the love we share.
+                    <br><br>
+
+                    As an engineer, I see life as a puzzle to be solved, and Anahit, with her commercial prowess,
+                    brings the art of negotiation and understanding into our relationship. We complement each other in
+                    ways that are both fascinating and inspiring, learning from each other's strengths and supporting
+                    one another's dreams.
+                    <br><br>
+
+                    As we embark on this beautiful journey of marriage, we want to express our heartfelt gratitude to
+                    all our friends and family who have supported and cherished our love story. Your presence on our
+                    special day will make it even more memorable, and we look forward to celebrating this joyous
+                    occasion with you.
+                    <br><br>
+
+                    With love and excitement,
+                    <br>
+                    Anahit & Hrag
+
+                </p>
+                <button onclick="toggleReadMore()" id="read-more-btn" class="translatable" data-arm="ավելին"
+                    data-eng="Read More">Read More</button>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="image-container">
+                <img src="images/story.jpg" alt="story-image" class="story-image">
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Events section 2 -->
+
+    <div class="event-part2">
+        <h1 style="text-align: center;" data-eng="Location" data-arm="Գտնվելու վայրը" class="translatable">Locations</h1>
+        <hr>
+        <div class="event-part-items">
+            <div class="events">
+                <h2 data-eng="Wedding Ceremony" data-arm="Հարսանեկան արարողությունը" class="translatable">Wedding Ceremony</h2>
+                <img src="images/church.png" alt="" width="100%" height="auto">
+                <a class="location-a"
+                href="https://maps.app.goo.gl/cvaWCrwvxw8pgSAE9"
+                target="_blank" rel="noreferrer noopenner">
+                <i class="fa-solid fa-map"></i>
+                <span class="translatable" data-eng="Saint John Church"
+                    data-arm="Սուրբ Հովհաննես եկեղեցի" style="padding-left: 10px;">Saint John Church
+                </span>
+            </a>
+            <a id="button-a" href="https://en.wikipedia.org/wiki/Saint_John_the_Baptist_Church,_Abovyan" target="_blank" rel="noreferrer noopener"
+                data-arm="Նայել" data-eng="Take a Look" class="translatable">Take a Look</a>
+            </div>
+            <div class="events" >
+                <h2 data-eng="Wedding Party" data-arm="Հարսանյաց սրահը" class="translatable">Wedding Party</h2>
+                <img src="images/location.jpg" alt="" width="100%" >
+                <a style="display: flex; justify-content: center; align-items: center; align-self: center;" class="location-a"
+                href="https://maps.app.goo.gl/p2iTneHjWw6qubvBA"
+                target="_blank" rel="noreferrer noopenner">
+                <i class="fa-solid fa-map"></i>
+                <span class="translatable" data-eng="villa restaurant complex"
+                    data-arm="Վիլլա ռեստորանային համալիր" style="padding-left: 10px;">villa restaurant complex</span>
+            </a>
+            <a id="button-a" href="http://villarestaurant.am/" target="_blank" rel="noreferrer noopener"
+                data-arm="Նայել" data-eng="Take a Look" class="translatable">Take a Look</a>
+          </div>
+        </div>
+       
+    </div>
+
+    <!-- Events section 2 end -->
+
+
+    <!-- Events -->
+    <!-- <div class="two-column-container2">
+        <div class="right-column2">
+            <img src="images/location.jpg" alt="Description of Image">
+        </div>
+        <div class="left-column2">
+            <h1 data-eng="Location" data-arm="Գտնվելու վայրը" class="translatable">Location</h1>
+            <hr>
+
+            <div class="timeline-container">
+                <div class="timeline-event">
+                    <h2 data-eng="bus pick up and drop off" data-arm="Ավտոբուսը վերցնել և իջեցնել" class="translatable">
+                        bus pick up and drop off</h2>
+                    <p style="font-style: italic;" data-arm="կհայտարարենք շուտով " data-eng="To be announced">To be
+                        announced</p>
+                </div>
+                <div class="timeline-event">
+                    <h2 data-eng="Wedding Ceremony" data-arm="Հարսանեկան արարողությունը" class="translatable">Wedding
+                        Ceremony</h2>
+                        <img src="images/church.png" alt="Church Image" height="auto" width="50%" style="margin-top: 20px; border-radius: 5px;">
+                        <div style="margin: 30px 20px 0px 0;" class="wedding-loc">
+                        <a class="location-a"
+                        href="https://maps.app.goo.gl/cvaWCrwvxw8pgSAE9"
+                        target="_blank" rel="noreferrer noopenner">
+                        <i class="fa-solid fa-map"></i>
+                        <span class="translatable" data-eng="Saint John Church"
+                            data-arm="Սուրբ Հովհաննես եկեղեցի">Saint John Church
+                        </span>
+                    </a>
+                </div>
+                </div>  
+                    </div>
+                <div class="timeline-event">
+                    <h2 data-eng="Wedding Party" data-arm="Հարսանյաց սրահը" class="translatable">Wedding Party</h2>
+                    <div style="margin: 30px 0 40px 0px;">
+                        <a class="location-a"
+                            href="https://maps.app.goo.gl/p2iTneHjWw6qubvBA"
+                            target="_blank" rel="noreferrer noopenner">
+                            <i class="fa-solid fa-map"></i>
+                            <span class="translatable" data-eng="villa restaurant complex"
+                                data-arm="Վիլլա ռեստորանային համալիր">villa restaurant complex</span>
+                        </a>
+                    </div>
+                    <div style="margin: 10px 0; height: 100%; width: 100%;">
+                        <a id="button-a" href="http://villarestaurant.am/" target="_blank" rel="noreferrer noopener"
+                            data-arm="Նայել" data-eng="Take a Look" class="translatable">Take a Look</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+
+    <!-- RSVP FORM -->
+    <div class="rsvp-section" id="rsvp">
+        <div class="form-container">
+            <h1 data-eng="RSVP" data-arm="ամրագրում" class="translatable">RSVP</h1>
+            <form id="rsvpForm">
+                <div class="input-group">
+                    <input type="text" placeholder="First Name" id="name" name="name" required data-eng="First Name"
+                        data-arm="Անուն" class="translatable">
+                    <input type="text" placeholder="Last Name" id="lastname" name="lastname" required
+                        data-arm="Ազգանուն" data-eng="Last Name" class="translatable">
+                </div>
+                <!-- Email on its own line -->
+                <div class="email-part">
+                    <input type="email" placeholder="Email" id="email" name="email" required
+                        data-arm="էլեկտրոնային հասցե" data-eng="Email" class="translatable">
+                </div>
+                <!-- Attendance on its own line -->
+                <select id="attendance" name="attendance" required>
+                    <option value="" disabled selected data-arm="Կմասնակցե՞ք։" data-eng="Will you attend?"
+                        class="translatable">Will you attend?</option>
+                    <option value="yes" data-arm="այո, ես գալիս եմ" data-eng="Yes, I will be there"
+                        class="translatable">Yes, I will be there</option>
+                    <option value="no" data-arm="կներեք, չեմ կարող" data-eng="Sorry, I cant be there"
+                        class="translatable">Sorry, I cant be there</option>
+                </select><br><br>
+
+                <div id="whySection" style="display: none;">
+                    <textarea id="comments" placeholder="Why?" name="comments" class="translatable" data-arm="ինչու՞"
+                        data-eng="Why?"></textarea>
+                </div>
+
+                <input type="submit" value="Submit" data-arm="Ուղարկել պատասխանը" data-eng="Submit"
+                    class="translatable" data-sitekey="6LcpwyQpAAAAAHw4Ipf4dDcwWU2A9WVFjRjJslFr">
+                <span id="successMessage"
+                    style="display: none; padding: 5px; text-align: center; border-radius: 10px; margin-top: 10px;"
+                    class="translatable" data-eng-yes="See you soon! 😄" data-arm-yes="Կհանդիպենք շուտով 😄"
+                    data-eng-no="Sorry to hear that. We'll miss you!" data-arm-no="Մենք կկարոտենք ձեզ"></span>
+                   
+
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+
+                <div class="footer-details">
+                    <img src="images/logos/dark-logo.png" alt="logo">
+                    <p data-eng="Anahit & Hrag" data-arm="Անահիտ և Հրակ" class="translatable">Anahit & Hrag</p>
+                    <p data-eng="Wedding Date: 18th August 2024" data-arm="Հարսանիքի ամսաթիվ՝ 18 օգոստոսի 2024"
+                        class="translatable">Wedding Date: 18th August 2024</p>
+                    <p data-eng="Location: Villa Restaurant Complex" data-arm="Վայրը՝ Վիլլա ռեստորանային համալիր"
+                        class="translatable">Location: Villa Restaurant Complex</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- RSVP FORM -->
+    <script src="index.js"></script>
+</body>
+
+</html>

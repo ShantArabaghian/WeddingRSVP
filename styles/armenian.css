@@ -1,0 +1,906 @@
+@font-face {
+  font-family: "Quiche";
+  src: url("/Fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quick";
+  src: url("/Fonts/Lato-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Script";
+  src: url("/Fonts/AlexBrush-Regular.ttf") format("truetype");
+}
+
+* {
+  -webkit-appearance: none;
+}
+
+body {
+  /* font-family: 'Quick', sans-serif;  */
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+nav {
+  transition: background-color 0.5s ease-in-out,
+    backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out,
+    height 0.5s ease-in-out;
+  margin-top: -180px;
+  background-color: transparent;
+  height: 70px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-around !important;
+  align-items: center;
+}
+
+nav a {
+  font-family: "Quick", sans-serif; /* Using sans-serif as a fallback */
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  font-size: 30px !important;
+  padding: 12px 20px;
+  display: block;
+}
+
+nav #logo img {
+  height: 180px;
+  padding-right: 40px;
+}
+
+nav a:hover {
+  color: #edd8bf;
+  transition: 0.3s ease-in-out;
+}
+
+nav.scrolled,
+nav.scrolled2 {
+  transition: background-color 0.5s ease-in-out,
+    backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out,
+    height 0.5s ease-in-out;
+  height: 70px;
+  transition: background-color 0.5s ease-in-out,
+    backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
+  box-shadow: 0px 2px 5px 0px grey;
+  padding: 20px 0;
+  -webkit-box-shadow: 0px 2px 5px 0px grey;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* Add the -webkit- prefix */
+}
+nav.scrolled {
+  box-shadow: 0px 2px 5px 0px black;
+  -webkit-box-shadow: 0px 2px 5px 0px black;
+}
+nav.scrolled2 a {
+  color: black;
+}
+
+nav.scrolled2 a:hover {
+  color: #cc8a41;
+}
+
+/* end of nav */
+.jumbotron {
+  position: relative;
+  background-image: url("/images/hero-image.jpg");
+  background-size: cover;
+  padding: 10px;
+  background-position: center;
+  height: 130vh; /* or whatever height you want for the hero section */
+  color: white; /* text color */
+}
+#button-music {
+  display: block;
+  width: 16%;
+  margin: 20px auto;
+  background-color: #cc8a41;
+  padding: 10px 0px;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  border-radius: 9999px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.fa-sharp.fa-solid.fa-arrow-down {
+  color: #000000; /* Set arrow color */
+  font-size: 20px;
+}
+#button-music:hover {
+  color: white;
+  background-color: #a56e32;
+}
+#button-music:hover .fa-sharp.fa-solid.fa-arrow-down {
+  color: white !important;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black overlay */
+  z-index: 1;
+}
+
+.desc {
+  position: relative; /* ensures the text is above the overlay */
+  z-index: 2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  margin-top: 110px;
+  padding-left: 50px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* You can adjust the values for your desired glow */
+  transform: translate(-50%, -50%); /* centers the .desc box */
+}
+.desc h2 {
+  font-family: "Script", sans-serif; /* Using sans-serif as a fallback */
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin-top: -60px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* You can adjust the values for your desired glow */
+  margin-bottom: 20px;
+}
+.desc h3 {
+  font-size: 25px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* You can adjust the values for your desired glow */
+}
+.desc h1 {
+  text-transform: uppercase;
+  font-family: "Quiche", sans-serif; /* Using sans-serif as a fallback */
+  font-size: 120px !important;
+  letter-spacing: 5px;
+}
+hr {
+  text-align: center;
+  width: 20%;
+}
+
+/* Our Story Starting */
+.two-column-container {
+  font-family: "Quick", sans-serif;
+  padding: 50px;
+  display: flex;
+  background: url('/images/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.left-column {
+  text-align: center;
+  flex: 1;
+  padding: 15px;
+}
+.left-column h1,
+.left-column2 h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+.left-column p {
+  font-size: 17px !important;
+  text-transform: none !important;
+  line-height: 25px;
+  font-weight: 300;
+  color: #000000;
+}
+.right-column,
+.right-column2 {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-column img,
+.right-column2 img {
+  max-width: 100%;
+  border-radius: 8px;
+  height: auto;
+}
+
+.countdown-container {
+  font-family: "Quick", sans-serif;
+  padding: 20px;
+  text-align: center;
+  background-color: #ecebe5;
+}
+.countdown-container h1 {
+  font-size: 35px !important;
+}
+h1 {
+  font-size: 40px !important;
+  font-weight: 500 !important;
+}
+.countdown {
+  display: flex;
+  justify-content: space-between;
+  background: url('/images/bg-flower.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #edd8bf;
+  padding: 80px 200px;
+  border-radius: 10px;
+  margin: 30px 200px;
+}
+
+.time-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3em;
+}
+
+.time-part label {
+  margin-top: 10px;
+  font-size: 0.5em;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 50%; /* Adjust this to your preference */
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #000;
+}
+
+#divider-text {
+  font-weight: 500;
+  font-size: 35px;
+  padding: 0 20px;
+}
+.two-column-container2 {
+  font-family: "Quick", sans-serif;
+  padding: 50px;
+  background-color: #ecebe5;
+  display: flex;
+}
+
+.left-column2 {
+  text-align: center;
+  flex: 1;
+  background-color: #ecebe5;
+}
+.left-column2 p {
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+.timeline-container {
+  position: relative;
+  padding-left: 20px;
+}
+.timeline-event:nth-child(1) {
+  display: none;
+}
+
+.timeline-event {
+  position: relative;
+  padding: 20px 0;
+}
+.timeline-event p {
+  font-size: 20px;
+}
+.timeline-event h2 {
+  font-size: 30px;
+  font-weight: 500 !important;
+}
+.timeline-event::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: #000 !important; /* Line color */
+  z-index: -1;
+}
+
+.timeline-event:last-child::before {
+  display: none; /* Remove line for last event */
+}
+
+h2 {
+  margin: 0;
+}
+#button-a {
+  background-color: #cc8a41;
+  padding: 10px 30px;
+  
+  width: 40%;
+  margin-left: 25%;
+ 
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 9999px;
+  transition: 0.3s ease-in-out;
+}
+#button-a:hover {
+  background-color: #a56e32;
+  transition: 0.3s ease-in-out;
+}
+.location-a {
+  text-decoration: none;
+  padding-left: 5px;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #a56e32;
+  transition: 0.3s ease-in-out;
+}
+.location-a:hover i,
+.location-a:hover {
+  color: #cc8a41;
+  transition: 0.3s ease-in-out;
+}
+.rsvp-section {
+  font-family: "Quick", sans-serif;
+  background: url('/images/bg.jpg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+.form-container h1 {
+  font-family: "Quick", sans-serif; /* Using sans-serif as a fallback */
+  font-weight: 500;
+  text-align: center;
+  font-size: 50px;
+}
+
+input[type="submit"] {
+  font-weight: bold;
+  background-color: #cc8a41;
+  color: white !important;
+  padding: 12px 40px 12px 40px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  border-radius: 9999px !important;
+  transition: 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: #a56e32;
+  color: white !important;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.form-container {
+  background: url('/images/bg-flower.png');
+  padding: 100px;
+  border-radius: 20% 20% 15px 15px;
+  max-width: 100%;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  transition: 0.3s ease-in-out;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+#attendance:focus,
+#comments:focus {
+  box-shadow: 0px 2px 5px 0px #cc8a41;
+  border: none !important;
+  outline: none;
+  border-color: transparent;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+#attendance:hover,
+#comments:hover {
+  box-shadow: 0px 2px 5px 0px #cc8a41;
+  border: none !important;
+  outline: none;
+  border-color: transparent;
+}
+input {
+  transition: 0.3s ease-in-out;
+  padding: 10px;
+  border: none;
+}
+.email-part {
+  display: flex;
+}
+input[type="email"] {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#attendance {
+  width: 100%;
+  transition: 0.3s ease-in-out;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+#comments {
+  width: 100%;
+  transition: 0.3s ease-in-out;
+  padding: 10px;
+  resize: none;
+  border: none;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+/* Existing CSS goes here... */
+
+/* Tablet Responsiveness (768px is a common breakpoint for tablets) */
+@media (max-width: 868px) {
+  nav ul {
+    flex-wrap: wrap; /* Allow the items to wrap to the next line if they don't fit */
+    justify-content: center;
+  }
+  #button-a{
+    margin-left: 22.5%; 
+   }
+  nav {
+    margin-top: -230px;
+    padding-bottom: 100px;
+  }
+  nav a {
+    font-size: 24px; /* Reduce font size for better fit */
+    padding: 12px 45px;
+  }
+
+  nav #logo img {
+    height: 200px; /* Reduce logo size */
+    padding-right: 0;
+  }
+
+  .jumbotron {
+    height: 100vh; /* Adjust hero section height */
+  }
+
+  .desc h2 {
+    font-size: 50px;
+    padding-top: 40px;
+  }
+  .desc {
+    padding-left: 20px;
+  }
+
+  .desc h1 {
+    font-size: 70px;
+  }
+
+  .two-column-container,
+  .two-column-container2 {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .right-column img,
+  .right-column2 img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .countdown {
+    padding: 40px 50px;
+    margin: 20px 20px;
+  }
+
+  .divider {
+    width: 70%;
+  }
+  .timeline-container {
+    position: relative;
+    padding-left: 0;
+  }
+  .timeline-event:nth-child(1) {
+    display: none;
+  }
+  .timeline-event:nth-child(2) img{
+    width: 100%;
+  }
+  .event-part-items{
+    flex-direction: column !important;
+    gap: 0px !important;
+  }
+  .events {
+    width: 95% !important; /* Full width on smaller screens */
+    padding: 10px !important;
+    margin-bottom: 20px !important;
+    overflow: hidden !important;
+  }
+  
+  .events img {
+    width: 100% !important;
+    height: auto !important; /* Adjusts height automatically */
+    object-fit: cover !important;
+  }
+  
+  .events h2 {
+    margin-top: 0 !important;
+    
+  }
+  .event-part2{
+    padding: 20px 0 !important;
+  }
+  .event-part2 hr{
+    width: 50% !important;
+    margin-bottom: 40px;
+  }
+}
+
+/* Mobile Responsiveness (480px is a common breakpoint for mobile phones) */
+@media (max-width: 480px) {
+  #nav-links li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .jumbotron {
+    height: 116vh !important; /* Adjust hero section height */
+  }
+  nav,
+  nav.scrolled2.nav.scrolled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 !important;
+    height: 60px !important;
+  }
+
+  nav a {
+    font-size: 14px !important;
+    padding: 0px 8px;
+    margin-right: -16px;
+  }
+  #nav-2-link {
+    margin-left: -14px;
+    padding-left: 5px;
+    margin-right: auto;
+  }
+
+  nav #logo img {
+    height: 110px;
+    padding-right: 0;
+    margin-top: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  .translate {
+    width: 46px;
+    margin-right: 20px;
+  }
+  nav ul {
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .desc {
+    margin-top: 90px;
+    padding-left: 0px;
+  }
+  .desc h2 {
+    font-size: 17px;
+    margin-top: -40px;
+    letter-spacing: 5px;
+  }
+
+  .desc h1 {
+    padding-left: 0;
+    padding-top: 50px;
+    font-size: 34px !important;
+    letter-spacing: 4px;
+  }
+  .desc h3 {
+    font-size: 15px;
+  }
+  #button-music {
+    width: 60% !important;
+    font-size: 20px;
+  }
+  hr {
+    text-align: center;
+    width: 50%;
+  }
+  .left-column h1,
+  .left-column2 h1 {
+    font-size: 40px;
+    font-weight: 300;
+    text-align: center;
+  }
+  .left-column p {
+    font-size: 20px;
+  }
+  .two-column-container {
+    padding: 20px 0;
+    flex-direction: column-reverse;
+  }
+  .two-column-container2 {
+    padding: 20px 0;
+  }
+  .countdown {
+    padding: 40px 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .countdown-container h1 {
+    font-size: 30px !important;
+  }
+  .time-part {
+    margin-bottom: 20px;
+  }
+  .timeline-event h2 {
+    font-size: 25px;
+    font-weight: 500 !important;
+  }
+  .divider {
+    width: 80%;
+  }
+  #divider-text {
+    font-size: 30px !important;
+  }
+
+  h1 {
+    font-size: 30px !important;
+  }
+  .rsvp-section {
+    padding: 30px 0;
+  }
+
+  .form-container {
+    background: none;
+    padding: 0;
+    width: 65%;
+  }
+  .rsvp-section {
+    background: url('/images/bg-flower.png');
+  }
+  .input-group {
+    flex-direction: column;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  .email-part {
+    display: flex;
+    width: 100%;
+  }
+  input[type="email"] {
+    margin-bottom: 20px;
+  }
+  input[type="submit"] {
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  #attendance {
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #8b8b8b;
+  }
+  #successMessage {
+    font-size: 25px;
+  }
+  #comments {
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    padding: 10px;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+  }
+  .timeline-container {
+    position: relative;
+    padding-left: 0;
+  }
+
+  .timeline-event {
+    position: relative;
+    padding: 15px;
+  }
+  .dropbtn img {
+    height: 30px;
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+    width: auto;
+  }
+  #story-content #story-paragraph {
+    max-height: 485px !important; /* Set a max-height that shows a snippet of your content */
+    overflow: hidden !important;
+    transition: max-height 0.5s ease !important; /* Smooth transition for the max-height property */
+  }
+
+  #story-content.show-full-story #story-paragraph {
+    max-height: 2000px !important; /* Adjust as necessary to fit your content */
+    /* You can use 'max-height: none' if you are sure that the content will never exceed a certain height. */
+  }
+  #story-content button {
+    width: 50% !important;
+  }
+}
+
+footer {
+  background-color: #ecebe5;
+  padding: 0px 0;
+  font-family: "Quick", sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.footer-details img {
+  height: 120px;
+}
+
+.footer-details p {
+  margin: 10px 0;
+  text-align: center;
+}
+.footer-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .footer-details {
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+  .footer-details p {
+    padding: 5px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-details {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 20px; /* Add some horizontal padding for breathing space */
+  }
+  .footer-details img {
+    height: 100px; /* Optionally reduce the image size a bit for tablets */
+  }
+  .footer-details p {
+    margin: 5px 20px; /* Some margin adjustments for better spacing */
+  }
+}
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Dropdown button image */
+.dropbtn img {
+  height: 30px;
+  padding-top: 13px;
+  width: auto;
+}
+
+/* Container for the dropdown */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+#story-content #story-paragraph {
+  max-height: 355px; /* Set a max-height that shows a snippet of your content */
+  overflow: hidden;
+  text-align: justify;
+  transition: max-height 0.5s ease; /* Smooth transition for the max-height property */
+}
+
+#story-content.show-full-story #story-paragraph {
+  text-align: justify !important;
+  max-height: 3000px; /* Adjust as necessary to fit your content */
+  /* You can use 'max-height: none' if you are sure that the content will never exceed a certain height. */
+}
+#story-content button {
+  display: block;
+  width: 25%;
+  margin: 20px auto;
+  background-color: #cc8a41;
+  padding: 10px 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border: none;
+  border-radius: 9999px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+#story-content button:hover {
+  background: #a56e32;
+}
+
+p {
+  font-size: 17px !important;
+}
+.events {
+  width: 500px; /* Adjust the width as needed */
+  border: none;
+  padding: 40px;
+  margin-bottom: 20px;
+  
+  overflow: hidden; /* Hide overflow */
+}
+
+.events img {
+  width: 100%; /* Full width of the container */
+  height: auto; /* Fixed height, adjust as needed */
+  object-fit: cover; /* Cover the area without distorting aspect ratio */
+}
+
+.events h2 {
+  margin-top: 0;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.events a {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.event-part-items {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+}
+.event-part2{
+  padding: 50px 0;
+  font-family: "Quick", sans-serif;
+
+}
+.event-part2 hr{
+  width: 9%;
+  text-align: center;
+}
